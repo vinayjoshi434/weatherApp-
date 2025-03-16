@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--  using google fonts          -->
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Outfit';
+        }
+    </style>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- this is cdn for css for including the material design bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/css/mdb.min.css" rel="stylesheet" />
+</head>
+
+<body class="p-2  bg-[url('./cover.jpg')] ... text-slate-700 ">
+
+
+
+
+
+    <header class=" flex items-center px-4  rounded-md">
+        <img src="https://img.icons8.com/?size=100&id=hNPhi9W6OrWu&format=png&color=000000" class="w-20" alt="">
+        <h1 class="text-5xl font-mono text-amber-200">Aakash Prahari</h1>
+
+    </header>
+    <main class="flex gap-1 p-4">
+        <aside class="w-2/6  ">
+            <div id="weather-input"
+                class="p-3 w-full flex flex-col gap-3 bg-[url('./searchbg.jpg')] rounded-lg justify-center">
+                <h3 class=" text-center text-amber-700 font-mono font-semibold text-2xl"> Enter the city Name</h3>
+                <input type="text" id="cityinput"
+                    class="outline-none p-2 bg-transparent border-2 border-amber-600 rounded-lg shadow-xl ... shadow-orange-300 text-white"
+                    required>
+                <button type="button" class="btn btn-light font-serif text-lg" data-mdb-ripple-init
+                    data-mdb-ripple-color="dark" id="searchbutton">Search</button>
+                <div class="flex items-center justify-center ">
+                    <div class="flex-grow border-t-2 border-orange-100"></div>
+                    <span class="mx-3 text-green-600 font-semibold font-mono text-xl">OR</span>
+                    <div class="flex-grow border-t-2 border-orange-100"></div>
+                </div>
+
+                <button
+                    class="bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 ... text-cyan-50  rounded-sm"
+                    id="locationbutton">
+                    Use Location
+                </button>
+            </div>
+
+
+
+
+
+        </aside>
+
+        <section class="w-full" id="weather-data-cont">
+
+            <div class="px-4" id="current-data-details">
+                <h3 class="text-green-200 font-[Outfit] text-xl">Current-parameters</h3>
+                <div id="details-parameter" class="flex justify-between p-4 h-44">
+                    <div class="flex-col flex gap-3 text-lime-50">
+                        <h2>(Location)( ______ )</h2>
+                        <h6>Temperature: __°C</h6>
+                        <h6>Wind: __ M/S</h6>
+                        <h6>Humidity: __%</h6>
+                    </div>
+                    <div class=" text-slate-200 flex flex-col items-center gap-6">
+                        <div>
+                            <span class="">Pressure: <span id="wrapper-pressure"></span></span>
+                            <span class="mx-2">|</span>
+                            <span class="">Humidity: <span id="wrapper-humidity"></span></span>
+                        </div>
+                        <div>
+                            <p>AQI:</p>
+
+                        </div>
+                    </div>
+                    <div class="p-3">
+
+                        Climate Condition
+
+                    </div>
+
+                </div>
+
+                <div id="days-forecast" class="my-3 flex flex-col gap-4">
+                    <!-- since i get only 2 days forcast from the api source excluding the current day-->
+
+                    <h3 class="text-green-200">2-Day Forecast</h3>
+                    <ul id="forecast-cards-div" class="flex gap-5 mx-4">
+                        <div
+                            class="bg-white/10 backdrop-blur-md p-3 rounded-lg shadow-lg text-white max-w-xs w-80 h-auto">
+                            <!--City & Weather Icon-->
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h2 class="text-xl font-semibold">Location</h2>
+                                    <p class="text-sm text-gray-300">Date</p>
+                                </div>
+                                <img src="https://cdn.weatherapi.com/weather/64x64/night/113.png" alt="Weather Icon"
+                                    class="w-16 h-16">
+                            </div>
+
+                            <!--Temperature & Weather Condition-->
+                            <div class="text-center mt-2">
+                                <h1 class="text-3xl font-bold">°C</h1>
+                                <p class="text-md text-gray-300">Climate-condition</p>
+                            </div>
+
+                            <!--Weather Details-->
+                            <div class="mt-4 flex justify-between text-sm text-gray-200">
+                                <div class="flex items-center space-x-1 gap-1">
+                                    <span>🌅</span>
+                                    <p>Sunset: </p>
+                                </div>
+                                <div class="flex items-center space-x-1 gap-1">
+                                    <span>💨</span>
+                                    <p>Wind:</p>
+                                </div>
+                                <div class="flex items-center space-x-1 gap-1">
+                                    <span>🌅</span>
+                                    <p>Sunrise: 6:30 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="script.js"></script>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/js/mdb.umd.min.js"></script>
+</body>
+
+</html>
